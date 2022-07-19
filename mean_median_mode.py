@@ -8,6 +8,26 @@ def calc_mean(nums):
     return mean
 
 
+def calc_median(nums):
+    """Calculates the median of a list of numbers."""
+
+    sorted_data = sorted(nums)
+    length = len(sorted_data)
+    if not length % 2:
+        # even
+        upper_midpoint = length // 2
+        lower_midpoint = upper_midpoint - 1
+        upper_value = sorted_data[upper_midpoint]
+        lower_value = sorted_data[lower_midpoint]
+        median = (upper_value + lower_value) / 2
+    else:
+        # odd
+        midpoint = length // 2
+        median = sorted_data[midpoint]
+        
+    return round(float(median), 2)
+
+
 def main():
     """Runs the main process."""
 
@@ -17,6 +37,8 @@ def main():
 
     mean = calc_mean(data_set_one)
     print(mean)
+    median = calc_median(data_set_one)
+    print(median)
 
 
 if __name__ == "__main__":
